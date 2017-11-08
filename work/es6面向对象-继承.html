@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+      //js面向对象
+      /*function User(name,pass){
+        this.name = name;
+        this.pass = pass;
+      }
+      User.prototype.login = function(){
+        alert('登陆成功')
+      }
+      let u = new User('joe','123');
+      u.login();*/
+      //ES6面向对象
+      class User{
+        constructor(name,pass){
+          this.name = name;
+          this.pass = pass;
+        }
+
+        login(){
+          alert('登陆成功')
+        }
+      }
+
+      class VipUser extends User{
+        constructor(name,pass,level){
+          super(name,pass);
+          this.level = level;
+        }
+
+        download(){
+          alert('下载成功')
+        }
+      }
+      let u = new VipUser('joe','123',9);
+      alert(u.name);
+      alert(u.pass);
+      alert(u.level);
+      u.login();
+      u.download();
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

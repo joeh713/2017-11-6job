@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="jquery-3.1.1.min.js"></script>
+	<script>
+		let p = new Promise(function(succ,error){
+			$.ajax({
+				url:'data/1.txt',
+				dataType:'json',
+				success:function(arr){
+					succ(arr);
+				},
+				error:function(err){
+					error(err);
+				}
+			})
+		});
+		let p2 = new Promise(function(succ,error){
+			$.ajax({
+				url:'data/2.txt',
+				dataType:'json',
+				success:function(arr){
+					succ(arr);
+				},
+				error:function(err){
+					error(err);
+				}
+			})
+		});
+		let p3 = new Promise(function(succ,error){
+			$.ajax({
+				url:'data/3.txt',
+				dataType:'json',
+				success:function(arr){
+					succ(arr);
+				},
+				error:function(err){
+					error(err);
+				}
+			})
+		});
+		Promise.all([p,p2,p3]).then(arr=>{
+			let [res1,res2,res3]=arr;
+			alert(`成功了${res1}`)
+			alert(`成功了${res2}`)
+			alert(`成功了${res3}`)
+		}, err=>{
+			alert(`失败了${err}`);
+		})
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    	window.onload = function(){
+    		var aBtn = document.getElementsByTagName('input');
+
+    		//传统写法，只弹3
+    		/*for(var i=0;i<aBtn.length;i++){
+    			aBtn[i].onclick = function(){
+    				alert(i)
+    			}
+    		}*/
+    		//传统写法自造作用域，只弹3
+    		/*for(var i=0;i<aBtn.length;i++){
+    			(function(i){
+    				aBtn[i].onclick = function(){
+	    				alert(i)
+	    			}
+    			})(i);
+    		}*/
+    		//ES6写法，只弹3
+    		for(let i=0;i<aBtn.length;i++){
+    			aBtn[i].onclick = function(){
+    				alert(i)
+    			}
+    		}
+    	};
+    </script>
+  </head>
+  <body>
+  	<input type="button" name="" value="a">
+  	<input type="button" name="" value="b">
+  	<input type="button" name="" value="c">
+  </body>
+</html>
